@@ -39,6 +39,20 @@ const router = new VueRouter({
       },
     },
     {
+      path: '/exam-builder',
+      name: 'exam-builder',
+      component: () => import('@/views/ExamBuilder/Builder.vue'),
+      meta: {
+        pageTitle: 'منشئ الإختبارات',
+        breadcrumb: [
+          {
+            text: 'منشئ الإختبارات',
+            active: true,
+          },
+        ],
+      },
+    },
+    {
       path: '/login',
       name: 'login',
       component: () => import('@/views/Login.vue'),

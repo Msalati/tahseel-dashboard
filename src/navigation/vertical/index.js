@@ -41,7 +41,7 @@ export default [
   },
   {
     title: 'منشئ الإختبارات',
-    route: 'second-page',
+    route: 'exam-builder',
     icon: 'Edit3Icon',
   },
 ]
