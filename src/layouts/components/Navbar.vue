@@ -28,12 +28,6 @@
         class="dropdown-user"
       >
         <template #button-content>
-          <div class="d-sm-flex d-none user-nav">
-            <p class="user-name font-weight-bolder mb-0">
-              لازورد الفيزقة
-            </p>
-            <span class="user-status">Admin</span>
-          </div>
           <b-avatar
             size="40"
             variant="light-primary"
@@ -42,6 +36,12 @@
             class="badge-minimal"
             badge-variant="success"
           />
+          <div class="d-sm-flex  d-flex justify-content-start user-nav">
+            <p class="user-name font-weight-bolder mb-0">
+              لازورد الفيزقة
+            </p>
+            <span class="user-status custom-user-status">أستاذ</span>
+          </div>
         </template>
 
         <b-dropdown-item link-class="d-flex align-items-center">
@@ -50,16 +50,7 @@
             icon="UserIcon"
             class="mr-50"
           />
-          <span>Profile</span>
-        </b-dropdown-item>
-
-        <b-dropdown-item link-class="d-flex align-items-center">
-          <feather-icon
-            size="16"
-            icon="MailIcon"
-            class="mr-50"
-          />
-          <span>Inbox</span>
+          <span>حسابي</span>
         </b-dropdown-item>
 
         <b-dropdown-item link-class="d-flex align-items-center">
@@ -68,7 +59,7 @@
             icon="CheckSquareIcon"
             class="mr-50"
           />
-          <span>Task</span>
+          <span>مهامي</span>
         </b-dropdown-item>
 
         <b-dropdown-item link-class="d-flex align-items-center">
@@ -77,7 +68,7 @@
             icon="MessageSquareIcon"
             class="mr-50"
           />
-          <span>Chat</span>
+          <span>المحادثات</span>
         </b-dropdown-item>
 
         <b-dropdown-divider />
@@ -88,7 +79,7 @@
             icon="LogOutIcon"
             class="mr-50"
           />
-          <span>Logout</span>
+          <span>تسجيل الخروج</span>
         </b-dropdown-item>
       </b-nav-item-dropdown>
     </b-navbar-nav>
@@ -121,3 +112,9 @@ export default {
   },
 }
 </script>
+<style scoped>
+.custom-user-status{
+  text-align: right !important;
+  color: red !important;
+}
+</style>

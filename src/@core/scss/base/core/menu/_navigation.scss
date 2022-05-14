@@ -83,7 +83,8 @@
       margin-top: 1.35rem;
       font-size: inherit;
       .brand-logo img {
-        max-width: 36px;
+        text-align: center;
+        max-width: 80%;
       }
       .brand-text {
         color: $primary;
@@ -114,6 +115,7 @@
     padding: 0;
 
     &.navigation-main {
+      margin-top: 30px;
       overflow-x: hidden;
       background-color: #4D44B5 !important;
       padding-bottom: .75rem;

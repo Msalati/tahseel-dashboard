@@ -158,7 +158,9 @@
         }
       }
     }
-
+    li:first-child{
+      margin-top: 40px;
+    }
     // Menu Item Hover Animation
     li.nav-item {
       a:hover > * {
