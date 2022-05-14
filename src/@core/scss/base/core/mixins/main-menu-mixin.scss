@@ -224,12 +224,13 @@
           }
         }
       }
+      // xs1-vulcan
       &.active {
         z-index: 1;
         > a {
-          background: linear-gradient(118deg, rgba($primary, 1), rgba($primary, 0.7));
+          background: $white;
           box-shadow: 0 0 10px 1px rgba($primary, 0.7);
-          color: $white;
+          color: #4D44B5;
           font-weight: 400;
           border-radius: 4px;
         }

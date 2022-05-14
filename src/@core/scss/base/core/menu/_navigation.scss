@@ -18,9 +18,10 @@
   display: table-cell;
   height: 100%;
   overflow: hidden;
+  background-color: #4D44B5 !important;
 
   &.menu-light {
-    @include menu-theme($body-color, $white);
+    @include menu-theme(#C1BBEB, $white);
   }
 
   &.menu-dark {
@@ -114,6 +115,7 @@
 
     &.navigation-main {
       overflow-x: hidden;
+      background-color: #4D44B5 !important;
       padding-bottom: .75rem;
       > li:first-child {
         margin-top: 0.5rem;
