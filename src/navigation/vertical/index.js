@@ -6,37 +6,37 @@ export default [
   },
   {
     title: 'قائمة الطلبة',
-    route: 'second-page',
+    route: 'third-page',
     icon: 'UsersIcon',
   },
   {
     title: 'الفصول و النقاشات',
-    route: 'second-page',
+    route: 'third-page',
     icon: 'NoIcon',
   },
   {
     title: 'جدول الدراسة و الإمتحانات',
-    route: 'second-page',
+    route: 'third-page',
     icon: 'NoIcon',
   },
   {
     title: 'الواجبات',
-    route: 'second-page',
+    route: 'third-page',
     icon: 'NoIcon',
   },
   {
     title: 'إدارة بنك الأسئلة',
-    route: 'second-page',
+    route: 'third-page',
     icon: 'NoIcon',
   },
   {
     title: 'الحضور و الغياب',
-    route: 'second-page',
+    route: 'third-page',
     icon: 'NoIcon',
   },
   {
     title: 'المحادثات',
-    route: 'second-page',
+    route: 'third-page',
     icon: 'ChatIcon',
   },
   {
