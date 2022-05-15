@@ -18,19 +18,23 @@
       </tab-content>
 
       <!-- personal details tab -->
-      <tab-content title="التخصص"> 
-      <speciality-step/>
+      <tab-content title="التخصص">
+        <specialty-step @getValue="getSubjects" />
       </tab-content>
 
       <!-- address  -->
-      <tab-content title="المقرر الدراسي"> </tab-content>
+      <tab-content title="المقرر الدراسي">
+        <subject-step :subjects="subjects" />
+      </tab-content>
 
       <!-- social link -->
-      <tab-content title="تفاصيل الإختبار"> 
+      <tab-content title="تفاصيل الإختبار">
         <exam-detail-step />
       </tab-content>
 
-      <tab-content title="نشر الإختبار"> </tab-content>
+      <tab-content title="نشر الإختبار">
+      <last-step/>
+       </tab-content>
 
       <template slot="footer">
         <div class="wizard-footer-right">
@@ -77,8 +81,10 @@ import {
 } from "bootstrap-vue";
 import { required, email } from "@validations";
 import YearStep from "./components/YearStep.vue";
-import SpecialityStep from "./components/SpecialtyStep.vue";
+import SpecialtyStep from "./components/SpecialtyStep.vue";
 import ExamDetailStep from "./components/ExamDetailStep.vue";
+import SubjectStep from "./components/SubjectStep.vue";
+import LastStep from "./components/LastStep.vue";
 
 export default {
   directives: {
@@ -97,9 +103,11 @@ export default {
     BFormInput,
     vSelect,
     YearStep,
-    SpecialityStep,
+    SpecialtyStep,
     ExamDetailStep,
+    SubjectStep,
     BFormInvalidFeedback,
+    LastStep,
     // eslint-disable-next-line vue/no-unused-components
     ToastificationContent,
   },
@@ -108,42 +116,7 @@ export default {
       selectedContry: "",
       isLastStep: false,
       selectedLanguage: "",
-      name: "",
-      emailValue: "",
-      PasswordValue: "",
-      passwordCon: "",
-      first_name: "",
-      last_name: "",
-      address: "",
-      landMark: "",
-      pincode: "",
-      twitterUrl: "",
-      facebookUrl: "",
-      googleUrl: "",
-      linkedinUrl: "",
-      city: "",
-      required,
-      email,
-      countryName: [
-        { value: "select_value", text: "Select Value" },
-        { value: "Russia", text: "Russia" },
-        { value: "Canada", text: "Canada" },
-        { value: "China", text: "China" },
-        { value: "United States", text: "United States" },
-        { value: "Brazil", text: "Brazil" },
-        { value: "Australia", text: "Australia" },
-        { value: "India", text: "India" },
-      ],
-      languageName: [
-        { value: "nothing_selected", text: "Nothing Selected" },
-        { value: "English", text: "English" },
-        { value: "Chinese", text: "Mandarin Chinese" },
-        { value: "Hindi", text: "Hindi" },
-        { value: "Spanish", text: "Spanish" },
-        { value: "Arabic", text: "Arabic" },
-        { value: "Malay", text: "Malay" },
-        { value: "Russian", text: "Russian" },
-      ],
+      subjects:[]
     };
   },
   methods: {
@@ -156,6 +129,9 @@ export default {
           variant: "success",
         },
       });
+    },
+    getSubjects(data) {
+      this.subjects = data.subjects
     },
     checkLastStep() {
       this.isLastStep = this.$refs.wizard.tabs[4].active;

@@ -71,6 +71,7 @@
         </div>
         </b-col>
       </b-row>
+      
     </b-card>
   </div>
 </template>
