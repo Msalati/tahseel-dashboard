@@ -4,3 +4,19 @@ NOTE:
 ------
 PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+.main-menu.menu-light .navigation > li.active > a{
+    border-radius: 4px 40px 40px 4px;
+}
+body {
+    background-color: #F3F4FF !important;
+  }
+  .header-navbar[class*="bg-"] .navbar-nav .nav-item > a {
+    color: #303972 !important;
+  }
+  .header-navbar[class*="bg-"] .navbar-nav .nav-item > a i, .header-navbar[class*="bg-"] .navbar-nav .nav-item > a svg, .header-navbar[class*="bg-"] .navbar-nav .nav-item > a span{
+    color: #303972 !important;
+  }
+
+  [dir="rtl"] .header-navbar .navbar-container ul.navbar-nav li.dropdown-cart .badge.badge-up, [dir="rtl"] .header-navbar .navbar-container ul.navbar-nav li.dropdown-notification .badge.badge-up{
+    color: #F3F4FF !important;
+  }

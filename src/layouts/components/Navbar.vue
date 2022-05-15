@@ -45,7 +45,7 @@
             size="40"
             variant="light-primary"
             badge
-            :src="require('@/assets/images/avatars/1-small.png')"
+            :src="require('@/assets/images/lazord.png')"
             class="badge-minimal"
             badge-variant="success"
           />
@@ -96,6 +96,7 @@
         </b-dropdown-item>
       </b-nav-item-dropdown>
     </b-navbar-nav>
+   
   </div>
 </template>
 
@@ -104,11 +105,14 @@ import {
   BLink, BNavbarNav, BNavItemDropdown, BDropdownItem, BDropdownDivider, BAvatar, BButton, BFormInput
 } from 'bootstrap-vue'
 import DarkToggler from '@core/layouts/components/app-navbar/components/DarkToggler.vue'
-
+import SearchBar from '@core/layouts/components/app-navbar/components/SearchBar.vue'
+import NotificationDropdown from '@core/layouts/components/app-navbar/components/NotificationDropdown.vue'
 export default {
   components: {
     BLink,
     BNavbarNav,
+    SearchBar,
+    NotificationDropdown,
     BNavItemDropdown,
     BDropdownItem,
     BDropdownDivider,
