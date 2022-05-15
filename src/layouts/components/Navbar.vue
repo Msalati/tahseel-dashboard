@@ -21,8 +21,8 @@
       <dark-Toggler class="d-none d-lg-block" />
     </div>
     <div class="search-bar">
-      <feather-icon class="custom-search-icon" size="20" icon="SearchIcon" />
-      <b-form-input>
+      <feather-icon class="custom-search-icon" size="24" icon="SearchIcon" />
+      <b-form-input placeholder="هل تبحث عن شيء ما..؟">
       </b-form-input>
 
     </div>
@@ -149,8 +149,23 @@ export default {
   border: none;
   padding: 10px;
 }
+.search-bar{
+  display: flex;
+}
 .custom-search-icon{
   position: absolute;
-  margin-top: 5px;
+  right: 350px;
+   text-indent: -999px;
+  overflow: hidden;
+  width: 40px;
+  padding: 0;
+  margin: 0;
+  margin-top: 7px;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  cursor: pointer;
+  opacity: 0.7;
+  color: #4D44B5;
+    transform: scaleX(-1);
 }
 </style>
