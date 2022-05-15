@@ -35,6 +35,7 @@
     "prismjs": "1.19.0",
     "swiper": "5.4.5",
     "uuid": "8.3.2",
+    "v-file-upload": "^3.1.7",
     "vee-validate": "3.4.5",
     "vue": "2.x",
     "vue-apexcharts": "1.6.0",

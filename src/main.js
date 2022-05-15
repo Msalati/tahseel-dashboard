@@ -12,7 +12,9 @@ import './global-components'
 // 3rd party plugins
 import '@/libs/portal-vue'
 import '@/libs/toastification'
+import FileUpload from '../node_modules/v-file-upload'
 
+Vue.use(FileUpload)
 // BSV Plugin Registration
 Vue.use(ToastPlugin)
 Vue.use(ModalPlugin)

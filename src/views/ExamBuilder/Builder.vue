@@ -26,7 +26,9 @@
       <tab-content title="المقرر الدراسي"> </tab-content>
 
       <!-- social link -->
-      <tab-content title="تفاصيل الإختبار"> </tab-content>
+      <tab-content title="تفاصيل الإختبار"> 
+        <exam-detail-step />
+      </tab-content>
 
       <tab-content title="نشر الإختبار"> </tab-content>
 
@@ -76,6 +78,7 @@ import {
 import { required, email } from "@validations";
 import YearStep from "./components/YearStep.vue";
 import SpecialityStep from "./components/SpecialtyStep.vue";
+import ExamDetailStep from "./components/ExamDetailStep.vue";
 
 export default {
   directives: {
@@ -95,6 +98,7 @@ export default {
     vSelect,
     YearStep,
     SpecialityStep,
+    ExamDetailStep,
     BFormInvalidFeedback,
     // eslint-disable-next-line vue/no-unused-components
     ToastificationContent,
