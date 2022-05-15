@@ -16,7 +16,6 @@
               <h5>تاريخ بدء وإنتهاء الإختبار *</h5>
               <b-row class="mt-2">
                 <b-col>
-                  <h6>موعد البداية</h6>
                   <b-form-input
                     aria-placeholder="2022/3/4"
                     type="date"
@@ -25,7 +24,6 @@
                   ></b-col
                 >
                 <b-col>
-                  <h6>موعد النهاية</h6>
                   <b-form-input
                     aria-placeholder="2022/3/4"
                     type="date"
@@ -36,21 +34,21 @@
               </b-row>
             </div>
 
-            <div class="mt-2 custom-question">
+            <div class="mt-5 custom-question">
               <b-row>
-                <b-col md="7"
+                <b-col md="6"
                   ><h5>كم أقصى موعد يمكن أن يستغرقه الطالب للحل؟ *</h5>
                 </b-col>
-                <b-col md="5" class="d-flex custom-time">
+                <b-col md="6" class="d-flex justify-content-around custom-time">
                   <feather-icon
                     class="text-warning"
                     icon="ClockIcon"
-                    size="40"
+                    size="25"
                   />
                   <span>الزمن بالدقائق </span>
                   <b-form-input
                     placeholder="20"
-                    class="custom-input-minutes"
+                    class="custom-input-minutes "
                   ></b-form-input>
                 </b-col>
               </b-row>
@@ -84,7 +82,7 @@
             <b-row>
               <b-col>
                 <div class="mt-2">
-                  <h5>عدد الأسئلة لهذا النموذج *</h5>
+                  <h5 class="mb-2">عدد الأسئلة لهذا النموذج *</h5>
                   <div
                     class="radio-question-num"
                     v-for="(question, index) in questions"
@@ -92,40 +90,27 @@
                   >
                     <b-form-group>
                       <b-form-radio
-                        class="circle"
+                        plain
+                        class="circle mb-1"
                         button-variant="danger"
                         v-model="selectedQuestion"
                         name="radio-questions"
                       >
-                        <span> {{ question }} أسئلة</span></b-form-radio
+                        <span class="radio-label">
+                          {{ question }} أسئلة</span
+                        ></b-form-radio
                       >
                     </b-form-group>
-                  </div>
-                  <div class="radio-question-num">
-                    <b-row>
-                      <b-col md="5">
-                        <b-form-radio
-                          class="circle radio-test"
-                          button-variant="danger"
-                          name="radio-questions"
-                        >
-                          <span> أخرى </span></b-form-radio
-                        >
-                      </b-col>
-                      <b-col md="5"
-                        ><b-form-input
-                          class="input-other"
-                          placeholder="عدد "
-                        ></b-form-input
-                      ></b-col>
-                    </b-row>
                   </div>
                 </div>
               </b-col>
               <b-col class="mt-2">
                 <h5>صورة الإختبار</h5>
+                <span class="sub"
+                  >صورة للإختبارهذه الصورة إختيارية يمكنك تجاوزها</span
+                >
                 <h1>
-                  <div @click="clickItem()" class="custom-add-image mt-4">
+                  <div @click="clickItem()" class="custom-add-image mt-2">
                     <div class="custom-add-text">
                       <h4>حمّل صورة تعبر عن أسئلة هذا الإختبار هُنا</h4>
                     </div>
@@ -135,8 +120,8 @@
                   id="add-picture"
                   type="file"
                   style="visibility: hidden"
-                /> </b-col
-              >
+                />
+              </b-col>
             </b-row>
           </b-col>
         </b-row>
@@ -161,6 +146,7 @@ import {
   BFormInput,
   BFormFile,
   BFormRadioGroup,
+  BFormGroup,
 } from "bootstrap-vue";
 import Ripple from "vue-ripple-directive";
 import FileUpload from "v-file-upload";
@@ -170,6 +156,7 @@ export default {
     BCard,
     BRow,
     BCol,
+    BFormGroup,
     BFormRadio,
     FileUpload,
     BCardText,
@@ -267,7 +254,7 @@ export default {
   border: none;
 }
 .bg-custom-easy {
-  background-color: #4D44B5 !important;
+  background-color: #4d44b5 !important;
   border: none;
 }
 .radio-question-num .custom-radio {
@@ -298,5 +285,30 @@ export default {
 }
 .custom-add-text {
   padding: 30%;
+}
+.form-control {
+  border: 1px solid #c1bbeb;
+}
+.sub {
+  font-weight: 275;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: right;
+
+  color: #a098ae;
+}
+.radio-label {
+  margin-left: 5px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+
+  /* identical to box height */
+
+  /* Color/Gray 3 */
+  color: #a098ae;
+}
+.custom-input-minutes{
+  width:30%
 }
 </style>
