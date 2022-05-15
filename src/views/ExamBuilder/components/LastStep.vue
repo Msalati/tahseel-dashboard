@@ -51,7 +51,12 @@
           </b-card>
         </b-col>
         <b-col>
-        <b-img src="@/assets/images/books.png"></b-img>
+          <b-img src="@/assets/images/books.png"></b-img>
+          <b-col md="12" class="text-center">
+            <b-button @click="goToExam" variant="success"
+              >عرض الإمتحان</b-button
+            >
+          </b-col>
         </b-col>
       </b-row>
     </b-card>
@@ -91,6 +96,11 @@ export default {
     BCardTitle,
     BCardFooter,
     BCardSubTitle,
+  },
+  methods: {
+    goToExam(){
+      this.$router.push('exam-pdf');
+    }
   },
   directives: {
     Ripple,
