@@ -1,29 +1,106 @@
 <template>
-  <div>
-    <b-card title="Rolling 🚀">
-      <b-card-text>All the best for your new project.</b-card-text>
-      <b-card-text>Please make sure to read our <b-link
-        href="https://pixinvent.com/demo/vuexy-vuejs-admin-dashboard-template/documentation/"
-        target="_blank"
-      >
-        Template Documentation
-      </b-link> to understand where to go from here and how to use our template.</b-card-text>
-    </b-card>
-  </div>
+  <b-card
+    no-body
+    class="card-statistics"
+  >
+    <b-card-header>
+      <b-card-title>إحصائيات </b-card-title>
+      <b-card-text class="mr-25 mb-0">
+        تم التحديث قبل 5 دقائق
+      </b-card-text>
+    </b-card-header>
+    <b-card-body class="statistics-body">
+      <b-row>
+        <b-col
+          v-for="item in statisticsItems"
+          :key="item.icon"
+          md="3"
+          sm="6"
+          class="mb-2 mb-md-0"
+          :class="item.customClass"
+        >
+          <b-media no-body>
+            <b-media-aside
+
+              class="mr-2"
+            >
+              <b-avatar
+                size="48"
+                :variant="item.color"
+              >
+                <feather-icon
+                  size="24"
+                  :icon="item.icon"
+                />
+              </b-avatar>
+            </b-media-aside>
+            <b-media-body class="my-auto">
+              <h4 class="font-weight-bolder mb-0">
+                {{ item.title }}
+              </h4>
+              <b-card-text class="font-small-3 mb-0">
+                {{ item.subtitle }}
+              </b-card-text>
+            </b-media-body>
+          </b-media>
+        </b-col>
+      </b-row>
+    </b-card-body>
+  </b-card>
 </template>
 
 <script>
-import { BCard, BCardText, BLink } from 'bootstrap-vue'
+import {
+  BCard, BCardHeader, BCardTitle, BCardText, BCardBody, BRow, BCol, BMedia, BMediaAside, BAvatar, BMediaBody,
+} from 'bootstrap-vue'
 
 export default {
   components: {
+    BRow,
+    BCol,
     BCard,
+    BCardHeader,
+    BCardTitle,
     BCardText,
-    BLink,
+    BCardBody,
+    BMedia,
+    BAvatar,
+    BMediaAside,
+    BMediaBody,
+  },
+  data() {
+    return {
+      statisticsItems: [
+        {
+          icon: 'TrendingUpIcon',
+          color: 'light-primary',
+          title: '230',
+          subtitle: 'عدد الإختبارات',
+          customClass: 'mb-2 mb-xl-0',
+        },
+        {
+          icon: 'UserIcon',
+          color: 'light-info',
+          title: '845',
+          subtitle: 'عدد الطلبة',
+          customClass: 'mb-2 mb-xl-0',
+        },
+        {
+          icon: 'BoxIcon',
+          color: 'light-danger',
+          title: '13',
+          subtitle: 'الجداول',
+          customClass: 'mb-2 mb-sm-0',
+        },
+        {
+          icon: 'DollarSignIcon',
+          color: 'light-success',
+          title: '$9745',
+          subtitle: 'Revenue',
+          customClass: '',
+        },
+      ],
+    }
   },
 }
 </script>
-
-<style>
-
-</style>
