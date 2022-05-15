@@ -136,7 +136,7 @@
                   type="file"
                   style="visibility: hidden"
                 /> </b-col
-              >س
+              >
             </b-row>
           </b-col>
         </b-row>

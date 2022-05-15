@@ -53,6 +53,11 @@ const router = new VueRouter({
       },
     },
     {
+      path: '/exam-pdf',
+      name: 'exam-pdf',
+      component: () => import('@/views/ExamPDF/ExamPDF.vue'),
+    },
+    {
       path: '/login',
       name: 'login',
       component: () => import('@/views/Login.vue'),
