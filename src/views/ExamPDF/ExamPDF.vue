@@ -25,9 +25,9 @@
         <div class="exam-header d-flex justify-content-around text-center">
           <div class="block mt-4 text-right">
             <div class="exam-header-right-side">
-              <div>مدة الإمتحان: 2 ساعة</div>
-              <div>عدد الأسئلة: 15 سؤال</div>
-              <div>المادة: رياضيات</div>
+              <div>مدة الإمتحان: {{ exam.time / 60 }} ساعة</div>
+              <div>عدد الأسئلة: {{ exam.questions.length }} سؤال</div>
+              <div>المادة: {{ exam.subject }}</div>
             </div>
           </div>
           <div class="block">
@@ -35,9 +35,9 @@
               <logo />
               <h3 class="text-primary invoice-logo"></h3>
             </div>
-            <h3>مدرسة {school-name-here}</h3>
-            <h3>اسئلة امتحان {exam-type-here}</h3>
-            <h3>2021-2022</h3>
+            <h3>مدرسة {{ exam.school }}</h3>
+            <h3>اسئلة امتحان {{ exam.title }}</h3>
+            <h3>{{ exam.year }}</h3>
           </div>
           <div class="block mt-4">
             <div class="exam-header-left-side">
@@ -47,14 +47,90 @@
               <div>
                 رقم الطالب: ..............................................
               </div>
-              <div>تاريخ الإمتحان {date-here}</div>
+              <div>تاريخ الإمتحان {{ getDate() }}</div>
             </div>
           </div>
         </div>
         <div class="divider"></div>
         <div class="questions">
-          <div class="question">
-            <h4>س{index} - {question} ?</h4>
+          <div
+            class="question"
+            v-for="(question, index) in exam.questions"
+            :key="index"
+          >
+            <h4 class="question-item">س{{ index + 1 }} - {{ question.question }}</h4>
+            <h4 class="answers" v-for="(choice, index) in question.choises" :key="index">
+              {{ index + 1 }}- {{ choice }}
+            </h4>
+          </div>
+        </div>
+      </div>
+    </b-card>
+
+
+    <!-- answers -->
+    
+    <div class="text-right mb-2 hideTempo">
+      <b-row>
+        <b-col class="text-left mt-2">
+          <h2>نموذج الأجوبة</h2>
+        </b-col>
+        <b-col>
+          <b-button
+            class="mt-1 color-primary bg-custom-print text-left p-2"
+            v-ripple.400="'rgba(40, 199, 111, 0.15)'"
+            pill
+            variant="primary"
+            @click="printInvoice"
+          >
+            <feather-icon class="mr-1" icon="PrinterIcon" size="16" />طباعة
+          </b-button>
+        </b-col>
+      </b-row>
+    </div>
+    <b-card>
+      <div class="exam-paper">
+        <div class="exam-header d-flex justify-content-around text-center">
+          <div class="block mt-4 text-right">
+            <div class="exam-header-right-side">
+              <div>مدة الإمتحان: {{ exam.time / 60 }} ساعة</div>
+              <div>عدد الأسئلة: {{ exam.questions.length }} سؤال</div>
+              <div>المادة: {{ exam.subject }}</div>
+            </div>
+          </div>
+          <div class="block">
+            <div class="logo-wrapper">
+              <logo />
+              <h3 class="text-primary invoice-logo"></h3>
+            </div>
+            <h3>مدرسة {{ exam.school }}</h3>
+            <h3>اسئلة امتحان {{ exam.title }}</h3>
+            <h3>{{ exam.year }}</h3>
+            <h3 class="success">نموذج الإجابة</h3>
+          </div>
+          <div class="block mt-4">
+            <div class="exam-header-left-side">
+              <div>
+                إسم الطالب: ..............................................
+              </div>
+              <div>
+                رقم الطالب: ..............................................
+              </div>
+              <div>تاريخ الإمتحان {{ getDate() }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="questions">
+          <div
+            class="question"
+            v-for="(question, index) in exam.questions"
+            :key="index"
+          >
+            <h4 class="question-item">س{{ index + 1 }} - {{ question.question }}</h4>
+            <h4 class="answers">
+               {{ question.correctAnswer }}
+            </h4>
           </div>
         </div>
       </div>
@@ -63,89 +139,14 @@
 </template>
 
 <script>
-import {
-  BRow,
-  BCol,
-  BCard,
-  BCardBody,
-  BTableLite,
-  BCardText,
-  BButton,
-  BAlert,
-  BLink,
-  VBToggle,
-} from "bootstrap-vue";
+import { BRow, BCol, BCard, BButton, VBToggle } from "bootstrap-vue";
 import Logo from "@core/layouts/components/Logo.vue";
 import Ripple from "vue-ripple-directive";
+import { ref } from "@vue/composition-api";
 
 export default {
   data() {
-    return {
-      exam: {
-        title: "الفصل الدراسي الأول",
-        teacher: "لازورد الفيزقة",
-        year: "2022",
-        time: "120",
-        subject: "الرياضيات",
-
-        questions: [
-          {
-            image: "www.lorepicsum.com/200",
-            question: "ماهو حاصل جمع 1+1؟",
-            answer: "2",
-            type: "direct",
-          },
-          {
-            image: "www.lorepicsum.com/200",
-            question: "ماهو حاصل جمع 1+1؟",
-            answer: "2",
-            type: "direct",
-          },
-          {
-            image: "www.lorepicsum.com/200",
-            question: "ماهو حاصل جمع 1+1؟",
-            answer: "2",
-            type: "direct",
-          },
-          {
-            image: "www.lorepicsum.com/200",
-            question: "ماهو حاصل جمع 1+1؟",
-            answer: "2",
-            type: "direct",
-          },
-          {
-            image: "www.lorepicsum.com/200",
-            question: "ماهو حاصل جمع 1+1؟",
-            answer: "2",
-            type: "direct",
-          },
-          {
-            image: "www.lorepicsum.com/200",
-            question: "ماهو حاصل جمع 1+1؟",
-            answer: "2",
-            type: "direct",
-          },
-          {
-            image: "www.lorepicsum.com/200",
-            question: "ماهو حاصل جمع 1+1؟",
-            answer: "2",
-            type: "direct",
-          },
-          {
-            image: "www.lorepicsum.com/200",
-            question: "ماهو حاصل جمع 1+1؟",
-            answer: "2",
-            type: "direct",
-          },
-          {
-            image: "www.lorepicsum.com/200",
-            question: "ماهو حاصل جمع 1+1؟",
-            answer: "2",
-            type: "direct",
-          },
-        ],
-      },
-    };
+    return {};
   },
   directives: {
     Ripple,
@@ -155,12 +156,7 @@ export default {
     BRow,
     BCol,
     BCard,
-    BCardBody,
-    BTableLite,
-    BCardText,
     BButton,
-    BAlert,
-    BLink,
 
     Logo,
   },
@@ -171,8 +167,92 @@ export default {
       window.print();
       el.style.display = "block";
     },
+    getDate() {
+      var date = new Date();
+      return date.toLocaleDateString();
+    },
   },
   setup() {
+    let exam = ref({
+      title: "الفصل الدراسي الأول",
+      teacher: "لازورد الفيزقة",
+      year: "2021-2022",
+      school: "دار اليمامة التعليمية",
+      time: "120",
+      subject: "تقنية معلومات",
+      date: Date.now(),
+      questions: [
+        {
+          id: 1,
+          question: "ما هو الشيء الوحيد الذي تفهمه أجهزة الكمبيوتر؟",
+          correctAnswer: "Machine Code",
+          choises: ["Machine Code", "Algorithms", "High Level Languages"],
+        },
+        {
+          id: 2,
+          question: "يُعرف حل الأخطاء في البرنامج بـ ...",
+          correctAnswer: "Problem Solving",
+          choises: ["Debugging", "Error Checking", "Problem Solving"],
+        },
+        {
+          id: 3,
+          question: "ماذا يعني الرمز الثنائي؟",
+          correctAnswer: "a coding system using the binary digits 0 and 1. ",
+          choises: [
+            "a coding system using the binary digits 0 and 1",
+            "1000100100",
+            "a coding system using the binary digits 1-10 ",
+          ],
+        },
+        {
+          id: 4,
+          question:
+            "ما نوع الذاكرة المستخدمة عند الحاجة الى تخزين بيانات بشكل دائم؟",
+          correctAnswer: "ROM",
+          choises: ["ROM", "RAM", "CPU"],
+        },
+        {
+          id: 5,
+          question: "أي البيانات التالية مهمة في استخدام الحاسوب الشخصي؟",
+          correctAnswer: "نظام التشغيل",
+          choises: ["قاعدة البيانات", "نظام التشغيل", "جدول بيانات"],
+        },
+        {
+          id: 6,
+          question: "بماذا تتمثل أهمية Google Drive?",
+          correctAnswer: "جميع ما ذكر",
+          choises: ["مشاركة الملفات", "تخزين الملفات", "جميع ما ذكر"],
+        },
+        {
+          id: 7,
+          question: "تستخدم كلمة المرور في؟",
+          correctAnswer: "حماية الحاسوب من المستخدمين",
+          choises: [
+            "تسهيل وصول الىمعلومات الحاسوب",
+            "تسهيل الوصول الى الشبكة",
+            "حماية الحاسوب من المستخدمين",
+          ],
+        },
+        {
+          id: 8,
+          question: "ما هو البرنامج المسؤول عن ادراج وعرض شرائح تقديمية؟",
+          correctAnswer: "POWERPOINT",
+          choises: ["PUPBLISHER", "POWERPOINT", "EXCEL"],
+        },
+        {
+          id: 9,
+          question: "أكثر أنواع الملفات الصوتية استخداما بالأنترنت؟",
+          correctAnswer: "MP3",
+          choises: ["WAV", "MP4", "MP3"],
+        },
+        {
+          id: 10,
+          question: "تتكون الصور من نقاط صغيرة تسمى؟",
+          correctAnswer: "بكسل",
+          choises: ["بايت", "نقطة", "بكسل"],
+        },
+      ],
+    });
     const invoiceDescription = [
       {
         taskTitle: "Native App Development",
@@ -194,9 +274,10 @@ export default {
 
     return {
       invoiceDescription,
-      printInvoice,
+      exam,
     };
   },
+  mounted() {},
 };
 </script>
 
@@ -205,6 +286,17 @@ export default {
 </style>
 
 <style lang="scss">
+.question {
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 26px;
+}
+.question .question-item{
+  font-weight: 600;
+}
+.answers{
+  margin-top: 20px;
+}
 @media print {
   // Global Styles
   body {
@@ -289,8 +381,6 @@ export default {
       border: 2px solid black;
     }
     .question h4 {
-      font-size: 20px !important;
-      font-weight: 800;
     }
     .bg-custom-print {
       font-size: 36px;

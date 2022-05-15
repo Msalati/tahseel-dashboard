@@ -91,7 +91,7 @@
                     <b-form-group>
                       <b-form-radio
                         plain
-                        class="circle mb-1"
+                        class="circle"
                         button-variant="danger"
                         v-model="selectedQuestion"
                         name="radio-questions"
@@ -254,7 +254,7 @@ export default {
   border: none;
 }
 .bg-custom-easy {
-  background-color: #4d44b5 !important;
+  background-color: #4D44B5 !important;
   border: none;
 }
 .radio-question-num .custom-radio {
@@ -263,7 +263,6 @@ export default {
   margin-bottom: 14px;
   font-size: 10px;
 }
-
 .radio-question-num .custom-radio span {
   color: #a098ae !important;
 }
@@ -285,30 +284,5 @@ export default {
 }
 .custom-add-text {
   padding: 30%;
-}
-.form-control {
-  border: 1px solid #c1bbeb;
-}
-.sub {
-  font-weight: 275;
-  font-size: 14px;
-  line-height: 21px;
-  text-align: right;
-
-  color: #a098ae;
-}
-.radio-label {
-  margin-left: 5px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-
-  /* identical to box height */
-
-  /* Color/Gray 3 */
-  color: #a098ae;
-}
-.custom-input-minutes{
-  width:30%
 }
 </style>
