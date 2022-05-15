@@ -6,8 +6,8 @@
   >
     <template #button-content>
       <feather-icon
-        badge="6"
-        badge-classes="bg-danger"
+        badge="3"
+        badge-classes="bg-primary"
         class="text-body"
         icon="BellIcon"
         size="21"
