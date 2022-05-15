@@ -291,6 +291,10 @@
           .user-status {
             font-size: smaller;
           }
+          #user-status>div{
+            text-align: right!important;
+            color: red!important;
+          }
 
           img {
             box-shadow: 0 4px 8px 0 rgba($black, 0.12), 0 2px 4px 0 rgba($black, 0.08);
@@ -311,9 +315,14 @@
           .user-nav {
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
+            align-items: flex-start;
             float: left;
             margin-right: $spacer - 0.2;
+            .user-status{
+              color: #A098AE !important;
+              margin-left: 3px;
+              margin-top: 5px;
+            }
           }
         }
 

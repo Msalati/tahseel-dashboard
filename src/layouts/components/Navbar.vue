@@ -20,7 +20,20 @@
     <div class="bookmark-wrapper align-items-center flex-grow-1 d-none d-lg-flex">
       <dark-Toggler class="d-none d-lg-block" />
     </div>
+    <div class="search-bar">
+      <feather-icon class="custom-search-icon" size="20" icon="SearchIcon" />
+      <b-form-input>
+      </b-form-input>
 
+    </div>
+    <div class="icons-custom">
+      <b-button v-ripple.400="'rgba(113, 102, 240, 0.15)'"  variant=" bg-white" class="btn-icon rounded-circle">
+        <feather-icon  size="20" icon="BellIcon" />
+      </b-button>
+      <b-button v-ripple.400="'rgba(113, 102, 240, 0.15)'" variant=" bg-white" class="btn-icon rounded-circle">
+        <feather-icon  size="20" icon="SettingsIcon" />
+      </b-button>
+    </div>
     <b-navbar-nav class="nav align-items-center ml-auto">
       <b-nav-item-dropdown
         right
@@ -32,7 +45,7 @@
             size="40"
             variant="light-primary"
             badge
-            :src="require('@/assets/images/avatars/13-small.png')"
+            :src="require('@/assets/images/avatars/1-small.png')"
             class="badge-minimal"
             badge-variant="success"
           />
@@ -88,7 +101,7 @@
 
 <script>
 import {
-  BLink, BNavbarNav, BNavItemDropdown, BDropdownItem, BDropdownDivider, BAvatar,
+  BLink, BNavbarNav, BNavItemDropdown, BDropdownItem, BDropdownDivider, BAvatar, BButton, BFormInput
 } from 'bootstrap-vue'
 import DarkToggler from '@core/layouts/components/app-navbar/components/DarkToggler.vue'
 
@@ -100,7 +113,8 @@ export default {
     BDropdownItem,
     BDropdownDivider,
     BAvatar,
-
+    BButton,
+    BFormInput,
     // Navbar Components
     DarkToggler,
   },
@@ -116,5 +130,27 @@ export default {
 .custom-user-status{
   text-align: right !important;
   color: red !important;
+}
+.icons-custom{
+  margin-top: 14px;
+  margin-right: 30px;
+}
+.icons-custom>:first-child{
+  margin-right: 10px;
+}
+
+.search-bar{
+  margin-right: 30px;
+  margin-top: 14px;
+}
+.search-bar input{
+  border-radius: 30px;
+  box-shadow: none;
+  border: none;
+  padding: 10px;
+}
+.custom-search-icon{
+  position: absolute;
+  margin-top: 5px;
 }
 </style>

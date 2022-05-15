@@ -12,36 +12,36 @@ export default [
   {
     title: 'الفصول و النقاشات',
     route: 'third-page',
-    icon: 'NoIcon',
+    icon: 'ListIcon',
   },
   {
     title: 'جدول الدراسة و الإمتحانات',
     route: 'third-page',
-    icon: 'NoIcon',
+    icon: 'CalendarIcon',
   },
   {
     title: 'الواجبات',
     route: 'third-page',
-    icon: 'NoIcon',
+    icon: 'PaperclipIcon',
   },
   {
     title: 'إدارة بنك الأسئلة',
     route: 'third-page',
-    icon: 'NoIcon',
+    icon: 'DatabaseIcon',
   },
   {
     title: 'الحضور و الغياب',
     route: 'third-page',
-    icon: 'NoIcon',
+    icon: 'UserMinusIcon',
   },
   {
     title: 'المحادثات',
     route: 'third-page',
-    icon: 'ChatIcon',
+    icon: 'MessageCircleIcon',
   },
   {
     title: 'منشئ الإختبارات',
     route: 'exam-builder',
-    icon: 'Edit3Icon',
+    icon: 'ActivityIcon',
   },
 ]
