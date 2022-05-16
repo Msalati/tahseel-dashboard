@@ -19,17 +19,18 @@
               id="datepicker-placeholder"
               class="mb-1"
               placeholder="تاريخ البداية"
-              local="en"
-              initial-date="2020-06-16"
-            />
-            <b-form-datepicker
-              id="datepicker-placeholder"
-              placeholder="تاريخ النهاية"
+              v-model="first_date"
               local="en"
               initial-date="2020-06-16"
             />
           </b-form-group>
-
+          <b-form-datepicker
+            id="datepicker"
+            placeholder="تاريخ النهاية"
+            local="en"
+            v-model="last_date"
+            initial-date="2020-06-16"
+          />
           <b-row class="mt-4">
             <b-col md="12"
               ><label>كم أقصى موعد يمكن أن يستغرقه الطالب للحل؟ *</label>
@@ -91,7 +92,7 @@
           </div>
         </b-col>
         <b-col>
-          <label for="">صورة الإختبار</label><br>
+          <label for="">صورة الإختبار</label><br />
           <span class="sub mb-2"
             >صورة للإختبارهذه الصورة إختيارية يمكنك تجاوزها</span
           >
@@ -140,6 +141,8 @@ export default {
   },
   data() {
     return {
+      first_date: "",
+      last_date: "",
       questions: [3, 5, 8, 10, 15, 20, 25],
       selectedQuestion: "",
       chosenSpecialty: "",
@@ -215,7 +218,7 @@ label {
   border: none;
 }
 .bg-custom-easy {
-  background-color: #4D44B5 !important;
+  background-color: #4d44b5 !important;
   border: none;
 }
 .radio-label {
